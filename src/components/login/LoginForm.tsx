@@ -5,8 +5,11 @@ const LoginForm = () : JSX.Element => {
                   <div className="email">
                       <input type="text" placeholder="Email" id="email-input"/>
                   </div>
-                  <div className="password mt-4">
+                  <div className="password">
                       <input type="text" placeholder="Mot de Passe" id="email-input"/>
+                  </div>
+                  <div className="button">
+                      <button className="btn">Se connecter</button>
                   </div>
               </form>
         </div>

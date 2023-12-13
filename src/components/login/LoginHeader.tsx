@@ -5,7 +5,7 @@ const LoginHeader = (): JSX.Element => {
         <img src="/logo-white.png" alt="" />
       </div>
       <div className="title">
-        <h1 className="text-center">Se connecter à votre compte</h1>
+        <h3 className="text-center">Se connecter à votre compte</h3>
       </div>
     </div>
   );
