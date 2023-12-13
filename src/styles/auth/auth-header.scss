@@ -7,6 +7,10 @@
         img {
             width: 105px;
             object-fit: cover;
+
+            @include screen(small){
+                width: 82px;
+            }
         }
 
     }
@@ -19,6 +23,10 @@
             font-weight: 700;
             font-size: 26px;
             text-shadow: 0 0 5px rgba(65, 64, 64, 0.5);
+
+            @include screen(small){
+                font-size: 23px;
+            }
         }
     }
 }

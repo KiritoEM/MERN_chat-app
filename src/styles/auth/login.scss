@@ -6,6 +6,10 @@
     display: flex;
     align-items: center;
 
+    @include screen(small){
+        background-color: $secondary;
+    }
+
     &__container {
         margin: auto;
         width: max-content;
@@ -13,6 +17,12 @@
         border-radius: 11px;
         background-color: $secondary;
         padding: 37px 49px 37px 49px;
+
+
+        @include screen(small){
+            width: 100%;
+            padding: 25px 32px 25px 32px;
+        }
 
 
         .section-form {

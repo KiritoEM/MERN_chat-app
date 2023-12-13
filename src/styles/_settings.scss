@@ -6,3 +6,33 @@ $secondary: rgb(39, 39, 39);
     padding: 0;
     font-family: 'Jost', sans-serif;
 }
+
+a{
+    text-decoration: none;
+}
+
+@mixin screen($breakpoint) {
+    @if $breakpoint ==small {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==medium {
+        @media (min-width: 768px) and (max-width: 1023px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==large {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    }
+}
+
+@mixin screen-x($min , $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}

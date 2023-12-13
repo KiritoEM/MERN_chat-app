@@ -30,7 +30,7 @@ const SignupForm = (): JSX.Element => {
               </div>
               <div className="signup mt-4">
                 <p>
-                  Vous avez déja un compte ? <b>Se connecter</b>
+                  Vous avez déja un compte ? <a href="/"><b>Se connecter</b></a>
                 </p>
               </div>
             </form>
