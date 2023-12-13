@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import MetaTitle from "@/components/MetaTitle";
+import LoginHeader from "@/components/login/LoginHeader";
+import LoginForm from "@/components/login/LoginForm";
 
 const index = (): JSX.Element => {
   return (
@@ -7,12 +9,8 @@ const index = (): JSX.Element => {
       <MetaTitle title="Connectez-vous" />
       <section id="login">
         <div id="login__container">
-          <div className="logo">
-             <img src="/logo-white.png" alt="" />
-          </div>
-          <div className="title">
-            <h1 className="text-center">Se connecter</h1>
-          </div>
+          <LoginHeader />
+          <LoginForm />
         </div>
       </section>
     </Fragment>
