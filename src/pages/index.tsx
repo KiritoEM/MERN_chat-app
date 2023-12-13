@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
 import MetaTitle from "@/components/MetaTitle";
-import LoginHeader from "@/components/login/LoginHeader";
+import AuthHeader from "@/components/login/AuthHeader";
 import LoginForm from "@/components/login/LoginForm";
 
-const index = (): JSX.Element => {
+const connexion = (): JSX.Element => {
   return (
     <Fragment>
-      <MetaTitle title="Connectez-vous" />
+      <MetaTitle title="Let's Talk - Connectez-vous" />
       <section id="login">
         <div id="login__container">
-          <LoginHeader />
+          <AuthHeader title="Se connecter à votre compte" />
           <LoginForm />
         </div>
       </section>
@@ -17,4 +17,4 @@ const index = (): JSX.Element => {
   );
 };
 
-export default index;
+export default connexion;

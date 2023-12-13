@@ -1,21 +1,39 @@
-#login {
+#signup {
     width: 100%;
     overflow: hidden;
     height: 100vh;
     background-color: $primary;
     display: flex;
     align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
 
-    &__container {
-        margin: auto;
-        width: max-content;
-        height: max-content;
-        border-radius: 11px;
-        background-color: $secondary;
-        padding: 37px 49px 37px 49px;
+    .section-cover {
+        width: 97%;
+        height: 100%;
 
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 
-        .section-form {
+    .section-form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &__container {
+            width: max-content;
+            height: max-content;
+            background-color: $secondary;
+            padding: 37px 49px 37px 49px;
+            border-radius: 11px;
+        }
+
+        &__content {
 
             .form {
                 input {
@@ -39,6 +57,10 @@
                 }
 
                 .password {
+                    margin-top: 2rem;
+                }
+
+                .email{
                     margin-top: 2rem;
                 }
 
@@ -71,55 +93,6 @@
                 }
             }
 
-            .or {
-                margin-top: 45px;
-
-                p {
-                    color: #fff;
-                    font-weight: 600;
-                    text-align: center;
-
-                    &::before {
-                        content: "";
-                        width: 77px;
-                        margin-top: 9px;
-                        margin-left: -87px;
-                        height: 2px;
-                        background-color: #fff;
-                        position: absolute;
-                    }
-
-                    &::after {
-                        content: "";
-                        width: 77px;
-                        margin-top: 9px;
-                        margin-left: 10px;
-                        height: 2px;
-                        background-color: #fff;
-                        position: absolute;
-                    }
-                }
-            }
-
-            .auth-google {
-                width: 100%;
-                margin-top: 39px;
-
-                .btn {
-                    width: 100%;
-                    white-space: nowrap;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding-top: 9px;
-                    padding-bottom: 9px;
-                    font-weight: 500;
-                    background-color: #fff;
-                    box-shadow: 0 0 8px rgba(59, 59, 59, 0.199);
-                    border-radius: 22px;
-                }
-            }
         }
     }
 }
