@@ -12,6 +12,9 @@ const LoginForm = (): JSX.Element => {
           <div className="button">
             <button className="btn">Se connecter</button>
           </div>
+          <div className="signup mt-4">
+              <p>Vous n' avez pas encore de compte ? <b>S' inscrire</b></p>
+          </div>
         </form>
       </div>
       <div className="or">
