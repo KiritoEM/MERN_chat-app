@@ -1,0 +1,40 @@
+#login {
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    background-image: linear-gradient(100deg, rgb(33, 33, 207), rgb(223, 101, 223));
+    display: flex;
+    align-items: center;
+
+    &__container {
+        margin: auto;
+        width: 37%;
+        height: 70vh;
+        background-color: rgba(238, 130, 238, 0.24);
+        border-radius: 11px;
+        box-shadow: 0 0 10px rgba(53, 52, 52, 0.281);
+        padding: 35px;
+
+        .logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+          img{
+            width: 104px;
+            object-fit: contain;
+          }
+
+        }
+
+        .title {
+            margin-top: 1rem;
+
+            h1 {
+                color: #fff;
+                font-weight: 700;
+                font-size: 2.3rem;
+            }
+        }
+    }
+}
