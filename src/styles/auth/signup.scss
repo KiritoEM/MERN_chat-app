@@ -66,10 +66,12 @@
 
                     &:focus {
                         outline: none;
+                        background-color: $secondary;
                     }
 
                     &::placeholder {
                         color: #fff;
+                        background-color: $secondary;
                     }
                 }
 
