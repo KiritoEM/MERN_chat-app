@@ -1,7 +1,14 @@
 import axios from "axios";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
+import { useToken } from "@/hooks/useToken";
 
 export default function AuthHelper() {
+  //import router
+  const router = useRouter();
+
+  //import token hooks
+  const { setLocalToken } = useToken();
+
   const signup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let form = e.currentTarget;
@@ -17,7 +24,8 @@ export default function AuthHelper() {
       });
 
       if (response.status === 200) {
-        // router.push("/");
+        setLocalToken(response.data.token)
+        router.push("/accueil");
         alert(`Bienvenue ${username}`);
       } else {
         alert("Echec de l' inscription");
@@ -40,7 +48,8 @@ export default function AuthHelper() {
       });
 
       if (response.status === 200) {
-        // router.push("/");
+        setLocalToken(response.data.token)  
+        router.push("/accueil");
         alert(`Bon retour`);
       } else {
         alert("Echec de la connexion");

@@ -12,12 +12,11 @@ const LoginForm: React.FC<Ilogin> = ({
   firebaseAction,
 }): JSX.Element => {
   const { emailSent } = useFirebase();
-  // const router = useRouter();
+   const router = useRouter();
 
   useEffect(() => {
     if (emailSent) {
-      // router.push("/landing");
-      alert("déja la");
+       router.push("/accueil");
     }
   }, [emailSent]);
 
