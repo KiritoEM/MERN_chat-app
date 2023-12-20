@@ -3,6 +3,9 @@ const ChatContentMessages = (): JSX.Element => {
     <div className="section-messages mt-5">
       <div className="chat-1">
         <div className="content">
+          <div className="profile-picture">
+            <img src="/images/hiro.jpeg" alt="" />
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             possimus voluptatibus nostrum voluptates soluta quisquam in
@@ -19,10 +22,16 @@ const ChatContentMessages = (): JSX.Element => {
             provident ea est molestiae reprehenderit eligendi, odio quibusdam
             quasi facere, nesciunt expedita velit. Eligendi!
           </p>
+          <div className="profile-picture">
+            <img src="/images/hiro.jpeg" alt="" />
+          </div>
         </div>
       </div>
       <div className="chat-1">
         <div className="content">
+          <div className="profile-picture">
+            <img src="/images/hiro.jpeg" alt="" />
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             possimus voluptatibus nostrum voluptates soluta quisquam in

@@ -82,6 +82,23 @@
 
             .content {
                 max-width: 70%;
+                display: flex;
+                gap: 17px;
+
+                .profile-picture {
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    position: relative;
+                    bottom: 27px;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
 
                 p {
                     color: #fff;
@@ -100,6 +117,23 @@
 
             .content {
                 max-width: 70%;
+                display: flex;
+                gap: 17px;
+
+                .profile-picture {
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    position: relative;
+                    bottom: 27px;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
 
                 p {
                     color: #fff;
