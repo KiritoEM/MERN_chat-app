@@ -7,6 +7,7 @@
     padding-right: 8px;
     overflow-x: hidden;
     overflow-y: auto;
+    padding-bottom: 1.5rem;
 
     .section-header {
         width: 100%;
@@ -83,7 +84,7 @@
             .content {
                 max-width: 70%;
                 display: flex;
-                gap: 17px;
+                gap: 13px;
 
                 .profile-picture {
                     height: 100%;
@@ -93,8 +94,8 @@
                     bottom: 27px;
 
                     img {
-                        width: 45px;
-                        height: 45px;
+                        width: 32px;
+                        height: 32px;
                         object-fit: cover;
                         border-radius: 50%;
                     }
@@ -118,7 +119,7 @@
             .content {
                 max-width: 70%;
                 display: flex;
-                gap: 17px;
+                gap: 13px;
 
                 .profile-picture {
                     height: 100%;
@@ -128,8 +129,8 @@
                     bottom: 27px;
 
                     img {
-                        width: 45px;
-                        height: 45px;
+                        width: 32px;
+                        height: 32px;
                         object-fit: cover;
                         border-radius: 50%;
                     }
@@ -141,6 +142,41 @@
                     padding: 17px;
                     border-radius: 18px;
                 }
+            }
+        }
+    }
+
+    .section-send {
+        width: 100%;
+        height: 4.7rem;
+        background-color: $primary;
+        border-radius: 7px;
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 3%;
+        padding-right: 8%;
+        gap: 22px;
+
+        .input {
+            width: 85%;
+
+            input {
+                width: 100%;
+                border-radius: 25px;
+                height: 2.8rem;
+                border: 0;
+                background-color: $secondary;
+                padding: 7px 26px;
+            }
+        }
+
+        .button{
+
+            #icon{
+                color: rgb(56, 56, 219);
+                font-size: 24px;
             }
         }
     }

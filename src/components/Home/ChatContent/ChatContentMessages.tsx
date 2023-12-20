@@ -35,9 +35,17 @@ const ChatContentMessages = (): JSX.Element => {
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             possimus voluptatibus nostrum voluptates soluta quisquam in
-            provident ea est molestiae reprehenderit eligendi, odio quibusdam
-            quasi facere, nesciunt expedita velit. Eligendi!
           </p>
+        </div>
+      </div>
+      <div className="chat-2">
+        <div className="content">
+          <p>
+          C' est quoi ?
+          </p>
+          <div className="profile-picture">
+            <img src="/images/hiro.jpeg" alt="" />
+          </div>
         </div>
       </div>
     </div>
