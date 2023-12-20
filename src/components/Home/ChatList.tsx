@@ -1,4 +1,4 @@
-const Home = () : JSX.Element => {
+const ChatList = () : JSX.Element => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const Home = () : JSX.Element => {
     );
 };
 
-export default Home;
+export default ChatList;
