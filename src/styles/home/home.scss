@@ -1,7 +1,10 @@
 @import "./chatlist.scss";
+@import "./chat-content.scss";
 @import "./DiscussionCard.scss";
 
 #chat-home {
     width: 100%;
     overflow: hidden;
+    display: flex;
+    background-color: $secondary;
 }

@@ -1,0 +1,113 @@
+#chat-content {
+    width: 75%;
+    position: relative;
+    height: 100vh;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .section-header {
+        width: 100%;
+        height: 5.3rem;
+        background-color: $primary;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 3.6%;
+
+        .user-info {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            overflow: hidden;
+
+            .profile-picture {
+                width: 70px;
+
+                img {
+                    width: 61px;
+                    height: 61px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .profile-content {
+
+                .username {
+
+                    h5 {
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 19.7px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .status {
+                    margin-top: 4px;
+
+                    p {
+                        color: green;
+                        margin-bottom: 0;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .options {
+            margin: auto 0;
+
+            img {
+                width: 30px;
+                object-fit: contain;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .section-messages {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+
+        .chat-1 {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 17px;
+
+            .content {
+                max-width: 70%;
+
+                p {
+                    color: #fff;
+                    background-color: rgb(61, 59, 59);
+                    padding: 17px;
+                    border-radius: 18px;
+                }
+            }
+        }
+
+        .chat-2 {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-bottom: 17px;
+
+            .content {
+                max-width: 70%;
+
+                p {
+                    color: #fff;
+                    background-color: rgb(56, 56, 219);
+                    padding: 17px;
+                    border-radius: 18px;
+                }
+            }
+        }
+    }
+}
