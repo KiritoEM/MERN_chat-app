@@ -1,10 +1,26 @@
-import React from "react";
+import { useFirebase } from "@/hooks/useFirebase";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 
 interface Ilogin {
   action: (e: React.FormEvent<HTMLFormElement>) => void;
+  firebaseAction: () => void;
 }
 
-const LoginForm: React.FC<Ilogin> = ({ action }): JSX.Element => {
+const LoginForm: React.FC<Ilogin> = ({
+  action,
+  firebaseAction,
+}): JSX.Element => {
+  const { emailSent } = useFirebase();
+  // const router = useRouter();
+
+  useEffect(() => {
+    if (emailSent) {
+      // router.push("/landing");
+      alert("déja la");
+    }
+  }, [emailSent]);
+
   return (
     <div className="section-form mt-5">
       <div className="form">
@@ -45,7 +61,7 @@ const LoginForm: React.FC<Ilogin> = ({ action }): JSX.Element => {
         <p>OU</p>
       </div>
       <div className="auth-google">
-        <button className="btn">
+        <button className="btn" onClick={() => firebaseAction()}>
           <img src="/images/icon/google.png" alt="" className="mx-2" />{" "}
           Continuer avec Google
         </button>

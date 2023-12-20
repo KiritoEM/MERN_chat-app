@@ -32,7 +32,6 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
     if (typeof window !== "undefined") {
       sentEmail(email);
     }
-
     return email;
   };
 
@@ -57,7 +56,7 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
 };
 
 //hooks exportation
-export const useAuth = () => {
+export const useFirebase = () => {
   const context = useContext(AuthContext);
 
   if (!context) {
