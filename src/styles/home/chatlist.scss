@@ -1,28 +1,50 @@
 #chat-list {
-    width: 27%;
+    width: 25%;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: $primary;
-    padding-top: 1.4rem;
 
-    .section-logo {
-        width: 100%;
+    .section-header {
         display: flex;
-        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        width: 23%;
+        height: max-content;
+        padding-bottom: 3rem;
+        padding-top: 1.4rem;
+        padding-left: 2%;
+        padding-right: 2%;
+        position: fixed;
+        z-index: 500;
+        background-color: $primary;
 
-        img {
-            width: 105px;
-            object-fit: contain;
+        .header-logo {
+            img {
+                width: 107px;
+                object-fit: contain;
+            }
+        }
+
+        .profile {
+            position: relative;
+            top: 5px;
+
+            img {
+                width: 37px;
+                height: 37px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
         }
     }
 
     .section-list {
-        padding-left: 7%;
-        padding-right: 7%;
-        margin-top: 4.4rem;
-        gap: 25px;
+        margin-top: 7rem;
+        gap: 32px;
         display: flex;
         flex-direction: column;
+        height: max-content;
+        padding-bottom: 2rem;
     }
 }
