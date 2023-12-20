@@ -1,0 +1,19 @@
+#chat-list{
+    width: 24%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $primary;
+    padding-top: 1.4rem;
+
+     .section-logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img{
+            width: 105px;
+            object-fit: contain;
+        }
+     }
+}

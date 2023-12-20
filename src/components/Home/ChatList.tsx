@@ -1,8 +1,10 @@
 const ChatList = () : JSX.Element => {
     return (
-        <div>
-            
-        </div>
+        <section id="chat-list">
+            <div className="section-logo">
+                  <img src="/logo-white.png" alt="" />
+            </div>
+        </section>
     );
 };
 
