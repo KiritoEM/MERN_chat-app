@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 export default function AuthHelper() {
   const signup = async (e: React.FormEvent<HTMLFormElement>) => {
