@@ -1,19 +1,28 @@
-#chat-list{
-    width: 24%;
+#chat-list {
+    width: 27%;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: $primary;
     padding-top: 1.4rem;
 
-     .section-logo{
+    .section-logo {
         width: 100%;
         display: flex;
         justify-content: center;
 
-        img{
+        img {
             width: 105px;
             object-fit: contain;
         }
-     }
+    }
+
+    .section-list {
+        padding-left: 7%;
+        padding-right: 7%;
+        margin-top: 4.4rem;
+        gap: 25px;
+        display: flex;
+        flex-direction: column;
+    }
 }

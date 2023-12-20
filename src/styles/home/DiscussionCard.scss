@@ -1,0 +1,52 @@
+.discussion {
+    width: 100%;
+    height: max-content;
+    // background-color: $secondary;
+    border-radius: 7px;
+    padding: 10px;
+    display: flex;
+    gap: 23px;
+
+    .user-pictures {
+        width: 50px;
+
+        img {
+            width: 62px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .user-info {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+
+        .name {
+
+            h5 {
+                color: #fff;
+                font-size: 19px;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
+
+        .message {
+            margin-top: 6px;
+
+            p {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                color: #fff;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
