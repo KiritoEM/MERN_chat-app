@@ -1,8 +1,10 @@
 import MetaTitle from "@/components/MetaTitle";
 import { Fragment } from "react";
 import SignupForm from "@/components/signup/SignupForm";
+import AuthHelper from "@/helper/AuthHelper";
 
 const inscription = (): JSX.Element => {
+  const { signup } = AuthHelper();
   return (
     <Fragment>
       <MetaTitle title="Let's Talk - S' inscrire" />
@@ -14,7 +16,7 @@ const inscription = (): JSX.Element => {
             </div>
           </div>
           <div className="col-lg-5">
-            <SignupForm />
+            <SignupForm action={signup} />
           </div>
         </div>
       </section>

@@ -4,10 +4,10 @@ const LoginForm = (): JSX.Element => {
       <div className="form">
         <form action="post">
           <div className="email">
-            <input type="text" placeholder="Email" id="email-input" />
+            <input type="text" placeholder="Email" id="email-input" name="email" />
           </div>
           <div className="password">
-            <input type="text" placeholder="Mot de Passe" id="email-input" />
+            <input type="text" placeholder="Mot de Passe" id="email-input" name="password" />
           </div>
           <div className="button">
             <button className="btn">Se connecter</button>

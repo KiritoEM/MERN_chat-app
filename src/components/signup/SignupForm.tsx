@@ -1,28 +1,44 @@
 import AuthHeader from "../login/AuthHeader";
 
-const SignupForm = (): JSX.Element => {
+interface Isignup {
+  action: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const SignupForm: React.FC<Isignup> = ({ action }): JSX.Element => {
   return (
     <div className="section-form">
       <div className="section-form__container">
         <AuthHeader title="Créer un compte" />
         <div className="section-form__content mt-5">
           <div className="form">
-            <form action="post">
+            <form
+              action="post"
+              onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                action(e);
+              }}
+            >
               <div className="username">
                 <input
                   type="text"
                   placeholder="Pseudo"
-                  id="email-input"
+                  id="username-input"
+                  name="username"
                 />
               </div>
               <div className="email">
-                <input type="text" placeholder="Email" id="email-input" />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  id="email-input"
+                  name="email"
+                />
               </div>
               <div className="password">
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Mot de Passe"
-                  id="email-input"
+                  id="password-input"
+                  name="password"
                 />
               </div>
               <div className="button">
@@ -30,7 +46,10 @@ const SignupForm = (): JSX.Element => {
               </div>
               <div className="signup mt-4">
                 <p>
-                  Vous avez déja un compte ? <a href="/"><b>Se connecter</b></a>
+                  Vous avez déja un compte ?{" "}
+                  <a href="/">
+                    <b>Se connecter</b>
+                  </a>
                 </p>
               </div>
             </form>
