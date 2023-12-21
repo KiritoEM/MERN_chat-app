@@ -1,4 +1,26 @@
-const DiscussionCard = (): JSX.Element => {
+import React from "react";
+
+interface IdiscussionCard {
+  _id: string;
+  users: Iusers[];
+  messages: Imessages[];
+}
+
+interface Iusers {
+  _id: string;
+  username: string;
+}
+
+interface Imessages {
+  _id: string;
+  content: string;
+}
+
+const DiscussionCard: React.FC<IdiscussionCard> = ({
+  _id,
+  users,
+  messages,
+}): JSX.Element => {
   return (
     <div className="discussion">
       <div className="user-pictures">
@@ -6,15 +28,14 @@ const DiscussionCard = (): JSX.Element => {
       </div>
       <div className="user-info">
         <div className="name">
-          <h5>Johan</h5>
+          {users.map((item, index) => (
+            <h5 key={index}>{item.username}</h5>
+          ))}
         </div>
         <div className="message">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-            culpa quidem sit aspernatur vitae dolor officia nulla beatae
-            eligendi ducimus cum omnis, optio distinctio quae, aliquam et labore
-            porro quam!
-          </p>
+          {messages.map((item, index) => (
+            <p key={index}>{item.content}</p>
+          ))}
         </div>
       </div>
     </div>

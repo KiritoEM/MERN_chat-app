@@ -12,7 +12,9 @@ import { useToken } from "./useToken";
 export interface IChatContext {
   getAllUser: () => void;
   fetchCurrentUser: () => void;
+  getDiscussions: () => void;
   user: IuserArray[];
+  discussions: IdiscussionCard[];
   currentUser: TCurrentUser[];
 }
 
@@ -27,6 +29,21 @@ type TCurrentUser = {
   email: string;
 };
 
+interface IdiscussionCard {
+  _id: string;
+  users: Iusers[];
+  messages: Imessages[];
+}
+
+interface Iusers {
+  _id: string;
+  username: string;
+}
+
+interface Imessages {
+  _id: string;
+  content: string;
+}
 interface IChatProvider {
   children?: ReactNode;
 }
@@ -37,6 +54,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
   const { getToken } = useToken();
   const [user, setUser] = useState<IuserArray[]>([]);
   const [currentUser, setCurrentUser] = useState<TCurrentUser[]>([]);
+  const [discussions, setDiscussions] = useState<IdiscussionCard[]>([]);
 
   //récupère tous les utilisateurs
   const getAllUser = async () => {
@@ -51,6 +69,18 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       );
       console.log(response.data);
       setUser(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const getDiscussions = async () => {
+    try {
+      let response = await axios.get(
+        `http://localhost:8000/chat/get-discussions/${currentUser._id}`
+      );
+      console.log(response.data);
+      setDiscussions(response.data);
     } catch (err) {
       console.error(err);
     }
@@ -76,6 +106,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
   useEffect(() => {
     getAllUser();
     fetchCurrentUser();
+    getDiscussions();
   }, []);
 
   return (
@@ -85,6 +116,8 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
         getAllUser,
         fetchCurrentUser,
         currentUser,
+        getDiscussions,
+        discussions,
       }}
     >
       {children}
