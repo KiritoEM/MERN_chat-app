@@ -9,10 +9,13 @@ import React, {
 } from "react";
 import { useToken } from "./useToken";
 
+let ID: string;
+
 export interface IChatContext {
   getAllUser: () => void;
   fetchCurrentUser: () => void;
   getDiscussions: () => void;
+  setLocalID: (ID: string) => void;
   user: IuserArray[];
   discussions: IdiscussionCard[];
   currentUser: TCurrentUser[];
@@ -55,6 +58,19 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
   const [user, setUser] = useState<IuserArray[]>([]);
   const [currentUser, setCurrentUser] = useState<TCurrentUser[]>([]);
   const [discussions, setDiscussions] = useState<IdiscussionCard[]>([]);
+  const [userID, setID] = useState<any>(() => {
+    if (typeof window !== "undefined") {
+      const storeduserID = localStorage.getItem("userID");
+      return storeduserID;
+    }
+
+    return null;
+  });
+
+  const setLocalID = (userID: string) => {
+    localStorage.setItem("userID", userID);
+    setID(String);
+  };
 
   //récupère tous les utilisateurs
   const getAllUser = async () => {
@@ -67,7 +83,6 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       let response = await axios.get(
         `http://localhost:8000/chat/all-user/${token}`
       );
-      console.log(response.data);
       setUser(response.data);
     } catch (err) {
       console.error(err);
@@ -76,8 +91,11 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
 
   const getDiscussions = async () => {
     try {
+      if (userID) {
+        ID = userID;
+      }
       let response = await axios.get(
-        `http://localhost:8000/chat/get-discussions/${currentUser._id}`
+        `http://localhost:8000/chat/get-discussions/${ID}`
       );
       console.log(response.data);
       setDiscussions(response.data);
@@ -96,8 +114,8 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       let response = await axios.get(
         `http://localhost:8000/chat/fetch-current-user/${token}`
       );
-      console.log(response.data);
       setCurrentUser(response.data);
+      setLocalID(response.data._id);
     } catch (err) {
       console.error(err);
     }
@@ -118,6 +136,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
         currentUser,
         getDiscussions,
         discussions,
+        setLocalID,
       }}
     >
       {children}
