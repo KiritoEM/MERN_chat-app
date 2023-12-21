@@ -1,17 +1,19 @@
 #chat-list {
     width: 25%;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .section-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 23%;
-        height: max-content;
-        padding-bottom: 3rem;
+        height: 15vh;
+        padding-bottom: 1.7rem;
         padding-top: 1.4rem;
         padding-left: 2%;
         padding-right: 2%;
@@ -40,13 +42,30 @@
     }
 
     .section-list {
-        margin-top: 7rem;
+        margin-top: 6rem;
+        height: 70vh;
+        overflow-y: auto;
         gap: 19px;
         display: flex;
         flex-direction: column;
         padding-left: 4%;
         padding-right: 4%;
         height: max-content;
-        padding-bottom: 2rem;
+        padding-bottom: 1.4rem;
+        padding-top: 1.4rem;
+    }
+
+    .section-footer{
+        width: 100%;
+        height: 15vh;
+        padding: 27px 10%;
+
+         .btn{
+            width: 100%;
+            border: 0;
+            color: #fff;
+            width: 100%;
+            background-image: linear-gradient(100deg, rgb(50, 50, 236), rgb(228, 75, 228));
+         }
     }
 }

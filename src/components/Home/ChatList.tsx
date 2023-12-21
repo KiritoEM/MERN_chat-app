@@ -1,11 +1,12 @@
 import DiscussionCard from "./ChatList/DiscussionCard";
 import ChatListHeader from "./ChatList/ChatListHeader";
+import ChatListFooter from "./ChatList/ChatListFooter";
 
 const ChatList = (): JSX.Element => {
   return (
     <section id="chat-list">
       <ChatListHeader />
-      
+
       <div className="section-list">
         <DiscussionCard />
         <DiscussionCard />
@@ -13,6 +14,8 @@ const ChatList = (): JSX.Element => {
         <DiscussionCard />
         <DiscussionCard />
       </div>
+
+      <ChatListFooter />
     </section>
   );
 };
