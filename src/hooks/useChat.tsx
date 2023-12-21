@@ -5,19 +5,26 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useCallback,
 } from "react";
 import { useToken } from "./useToken";
 
 export interface IChatContext {
   getAllUser: () => void;
+  fetchCurrentUser: () => void;
   user: IuserArray[];
+  currentUser: TCurrentUser[];
 }
 
 interface IuserArray {
   _id: string;
   username: string;
 }
+
+type TCurrentUser = {
+  _id: string;
+  username: string | null;
+  email :string
+};
 
 interface IChatProvider {
   children?: ReactNode;
@@ -28,11 +35,12 @@ const ChatContext = createContext<IChatContext | null>(null);
 export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
   const { getToken } = useToken();
   const [user, setUser] = useState<IuserArray[]>([]);
+  const [currentUser, setCurrentUser] = useState<TCurrentUser[]>([]);
 
   //récupère tous les utilisateurs
   const getAllUser = async () => {
     try {
-      const token = getToken();
+      let token = getToken();
       if (!token) {
         console.error("Token not available");
         return;
@@ -47,8 +55,26 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     }
   };
 
+  const fetchCurrentUser = async () => {
+    let token = getToken();
+    if (!token) {
+      console.error("Token not available");
+      return;
+    }
+    try {
+      let response = await axios.get(
+        `http://localhost:8000/chat/fetch-current-user/${token}`
+      );
+      console.log(response.data);
+      setCurrentUser(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getAllUser();
+    fetchCurrentUser();
   }, []);
 
   return (
@@ -56,6 +82,8 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       value={{
         user,
         getAllUser,
+        fetchCurrentUser,
+        currentUser,
       }}
     >
       {children}

@@ -5,6 +5,7 @@ import { useChat } from "@/hooks/useChat";
 
 const ChatFriendList = (): JSX.Element => {
   const { user } = useChat();
+
   return (
     <section id="chat-friendlist">
       <ChatListHeader />
