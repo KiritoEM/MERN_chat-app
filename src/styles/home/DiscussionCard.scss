@@ -3,9 +3,15 @@
     height: max-content;
     // background-color: $secondary;
     border-radius: 7px;
-    padding: 7px;
+    padding: 7px 6%;
     display: flex;
-    gap: 23px;
+    gap: 17px;
+
+
+    &:hover{
+        background-color: $secondary;
+        cursor: pointer;
+    }
 
     .user-pictures {
         width: 50px;

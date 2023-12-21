@@ -28,8 +28,8 @@
                 width: 70px;
 
                 img {
-                    width: 61px;
-                    height: 61px;
+                    width: 57px;
+                    height: 57px;
                     border-radius: 50%;
                     object-fit: cover;
                 }
@@ -48,7 +48,7 @@
                 }
 
                 .status {
-                    margin-top: 4px;
+                    margin-top: 2px;
 
                     p {
                         color: green;
@@ -91,11 +91,11 @@
                     display: flex;
                     align-items: flex-end;
                     position: relative;
-                    bottom: 27px;
+                    bottom: 15px;
 
                     img {
-                        width: 32px;
-                        height: 32px;
+                        width: 36px;
+                        height: 36px;
                         object-fit: cover;
                         border-radius: 50%;
                     }
@@ -126,11 +126,11 @@
                     display: flex;
                     align-items: flex-end;
                     position: relative;
-                    bottom: 27px;
+                    bottom: 15px;
 
                     img {
-                        width: 32px;
-                        height: 32px;
+                        width: 36px;
+                        height: 36px;
                         object-fit: cover;
                         border-radius: 50%;
                     }
@@ -169,12 +169,16 @@
                 border: 0;
                 background-color: $secondary;
                 padding: 7px 26px;
+
+                 &:focus{
+                    outline: 0;
+                 }
             }
         }
 
-        .button{
+        .button {
 
-            #icon{
+            #icon {
                 color: rgb(56, 56, 219);
                 font-size: 24px;
             }

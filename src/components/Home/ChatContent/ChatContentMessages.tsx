@@ -22,9 +22,6 @@ const ChatContentMessages = (): JSX.Element => {
             provident ea est molestiae reprehenderit eligendi, odio quibusdam
             quasi facere, nesciunt expedita velit. Eligendi!
           </p>
-          <div className="profile-picture">
-            <img src="/images/hiro.jpeg" alt="" />
-          </div>
         </div>
       </div>
       <div className="chat-1">
@@ -43,9 +40,6 @@ const ChatContentMessages = (): JSX.Element => {
           <p>
           C' est quoi ?
           </p>
-          <div className="profile-picture">
-            <img src="/images/hiro.jpeg" alt="" />
-          </div>
         </div>
       </div>
     </div>
