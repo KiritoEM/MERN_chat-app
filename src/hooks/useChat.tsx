@@ -5,6 +5,7 @@ import React, {
   useContext,
   useState,
   useEffect,
+  useCallback,
 } from "react";
 import { useToken } from "./useToken";
 
@@ -23,7 +24,7 @@ interface IuserArray {
 type TCurrentUser = {
   _id: string;
   username: string | null;
-  email :string
+  email: string;
 };
 
 interface IChatProvider {
@@ -55,7 +56,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     }
   };
 
-  const fetchCurrentUser = async () => {
+  const fetchCurrentUser = useCallback(async () => {
     let token = getToken();
     if (!token) {
       console.error("Token not available");
@@ -70,7 +71,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     } catch (err) {
       console.error(err);
     }
-  };
+  }, [getToken]);
 
   useEffect(() => {
     getAllUser();

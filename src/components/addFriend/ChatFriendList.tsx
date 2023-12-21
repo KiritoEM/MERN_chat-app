@@ -11,9 +11,11 @@ const ChatFriendList = (): JSX.Element => {
       <ChatListHeader />
 
       <div className="section-list">
-        {user.map((item, index) => (
-          <ChatFriendCard key={index} {...item} />
-        ))}
+        {user.length === 0 ? (
+          <h5 id="vide">Aucun utilisateur disponible.</h5>
+        ) : (
+          user.map((item, index) => <ChatFriendCard key={index} {...item} />)
+        )}
       </div>
 
       <ChatFriendFooter />
