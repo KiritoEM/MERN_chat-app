@@ -6,14 +6,12 @@ const ChatListFooter = (): JSX.Element => {
   const router = useRouter();
   return (
     <div className="section-footer">
-      <button
-        className="btn"
-        onClick={() => {
-          router.push("/ajoutAmi");
-        }}
-      >
+        <a href="/ajoutAmi" className="a">
+        {" "}
+        <button className="btn">
         <FontAwesomeIcon icon={faUser} className="mx-2" /> Suggestion d' amis
-      </button>
+        </button>
+      </a>
     </div>
   );
 };

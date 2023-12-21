@@ -15,15 +15,13 @@ const ChatAddContent = (): JSX.Element => {
           <h5>Veuillez seléctionner une discussion</h5>
         </div>
         <div className="button">
-          <button
-            className="btn"
-            onClick={() => {
-              router.push("/accueil");
-            }}
-          >
-            <FontAwesomeIcon icon={faCommentDots} className="mx-2" /> Voir le
-            Chat
-          </button>
+          <a href="/accueil" className="a">
+            {" "}
+            <button className="btn">
+              <FontAwesomeIcon icon={faCommentDots} className="mx-2" /> Voir le
+              Chat
+            </button>
+          </a>
         </div>
       </div>
     </div>

@@ -95,12 +95,19 @@
                 .add-btn {
                     margin-top: 14px;
 
-                    .btn {
-                        background-image: linear-gradient(100deg, rgb(50, 50, 236), rgb(228, 75, 228));
+                    .btn {                       
                         border: 0;
                         color: #fff;
                         font-weight: 600;
                         padding: 4px 36px;
+                    }
+
+                    #btn-1{
+                      background-color: $secondary;
+                    }
+
+                    #btn-2{
+                        background-image: linear-gradient(100deg, rgb(50, 50, 236), rgb(228, 75, 228));
                     }
                 }
             }

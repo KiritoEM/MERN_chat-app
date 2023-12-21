@@ -1,5 +1,7 @@
-import React from "react";
-import chatHelper from "@/helper/ChatHelper"; 
+import React, { useState } from "react";
+import chatHelper from "@/helper/ChatHelper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 type IfriendCard = {
   _id?: string;
@@ -10,7 +12,8 @@ const ChatFriendCard: React.FC<IfriendCard> = ({
   _id,
   username,
 }): JSX.Element => {
-  const { addFriend } = chatHelper(); 
+  const { addFriend } = chatHelper();
+  const [add, setAdded] = useState<boolean>(false);
   return (
     <div className="friend-card">
       <div className="profile-pictures">
@@ -21,14 +24,22 @@ const ChatFriendCard: React.FC<IfriendCard> = ({
           <h5>{username}</h5>
         </div>
         <div className="add-btn">
-          <button
-            className="btn"
-            onClick={() => {
-              _id ? addFriend(_id) : "";
-            }}
-          >
-            Ajouter
-          </button>
+          {add ? (
+            <button className="btn" id="btn-1">
+              Ajouté(e) <FontAwesomeIcon icon={faCheck} className="mx-1" />
+            </button>
+          ) : (
+            <button
+              className="btn"
+              onClick={() => {
+                _id ? addFriend(_id) : "";
+                setAdded(true);
+              }}
+              id="btn-2"
+            >
+              Ajouter
+            </button>
+          )}
         </div>
       </div>
     </div>
