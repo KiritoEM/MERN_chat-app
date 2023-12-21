@@ -6,7 +6,7 @@ import ChatContent from "@/components/Home/ChatContent";
 const Home = (): JSX.Element => {
   return (
     <Fragment>
-      <MetaTitle title="Let's Chat" />
+      <MetaTitle title="Let's Chat - Chat" />
       <section id="chat-home">
         <ChatList />
         <ChatContent />

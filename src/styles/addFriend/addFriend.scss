@@ -1,0 +1,54 @@
+@import "./friend-list.scss";
+
+#chat-addfriend {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    background-color: $secondary;
+
+    .add-content {
+        width: 75%;
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__container {
+            width: max-content;
+            height: max-content;
+
+            .title {
+                text-align: center;
+
+                h2 {
+                    color: #fff;
+                    font-weight: 600;
+                }
+            }
+
+            .subtitle {
+                text-align: center;
+                margin-top: 17px;
+
+                h5 {
+                    color: #fff;
+                }
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+                margin-top: 2.5rem;
+
+                .btn {
+                    width: 60%;
+                    height: 48px;
+                    border: 0;
+                    color: #fff;
+                    background-image: linear-gradient(100deg, rgb(50, 50, 236), rgb(228, 75, 228));
+                }
+            }
+        }
+    }
+}

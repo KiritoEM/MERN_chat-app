@@ -1,21 +1,21 @@
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 
-const ChatListFooter = (): JSX.Element => {
+const ChatFriendFooter = (): JSX.Element => {
   const router = useRouter();
   return (
     <div className="section-footer">
       <button
         className="btn"
         onClick={() => {
-          router.push("/ajoutAmi");
+          router.push("/accueil");
         }}
       >
-        <FontAwesomeIcon icon={faUser} className="mx-2" /> Suggestion d' amis
+        <FontAwesomeIcon icon={faCommentDots} className="mx-2" /> Voir le Chat
       </button>
     </div>
   );
 };
 
-export default ChatListFooter;
+export default ChatFriendFooter;
