@@ -5,16 +5,14 @@ import { useChat } from "@/hooks/useChat";
 
 const ChatFriendList = (): JSX.Element => {
   const { user } = useChat();
-
-  if (user) {
-    console.log("all user", user);
-  }
   return (
     <section id="chat-friendlist">
       <ChatListHeader />
 
       <div className="section-list">
-        <ChatFriendCard />
+        {user.map((item, index) => (
+          <ChatFriendCard key={index} {...item} />
+        ))}
       </div>
 
       <ChatFriendFooter />

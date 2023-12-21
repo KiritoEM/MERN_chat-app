@@ -5,7 +5,9 @@ import React, {
   useContext,
   useState,
   useEffect,
+  useCallback,
 } from "react";
+import { useToken } from "./useToken";
 
 export interface IChatContext {
   getAllUser: () => void;
@@ -24,26 +26,30 @@ interface IChatProvider {
 const ChatContext = createContext<IChatContext | null>(null);
 
 export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
+  const { getToken } = useToken();
   const [user, setUser] = useState<IuserArray[]>([]);
 
-  //recuperer tous les utilisateurs
-  const getAllUser = () => {
-    useEffect(() => {
-      const fetchUser = async () => {
-        try {
-          let response = await axios.get("http://localhost:8000/chat/all-user");
-          console.log(response.data);
-          setUser(response.data);
-        } catch (err) {
-          console.error(err);
-        }
-      };
-
-      fetchUser();
-    }, []);
+  //récupère tous les utilisateurs
+  const getAllUser = async () => {
+    try {
+      const token = getToken();
+      if (!token) {
+        console.error("Token not available");
+        return;
+      }
+      let response = await axios.get(
+        `http://localhost:8000/chat/all-user/${token}`
+      );
+      console.log(response.data);
+      setUser(response.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  getAllUser();
+  useEffect(() => {
+    getAllUser();
+  }, []);
 
   return (
     <ChatContext.Provider
@@ -57,7 +63,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
   );
 };
 
-//hooks exportation
+//chat hooks exportation
 export const useChat = () => {
   const context = useContext(ChatContext);
 
