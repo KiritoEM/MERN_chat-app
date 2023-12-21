@@ -8,7 +8,7 @@ import { Fragment } from "react";
 const AddFriend = (): JSX.Element => {
   return (
     <Fragment>
-      <MetaTitle title="Let's Chat - Ajouter ami" />
+      <MetaTitle title="Let's Chat - Ajouter un ami" />
       <section id="chat-addfriend">
         <ChatFriendList />
         <ChatAddContent />
