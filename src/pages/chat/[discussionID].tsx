@@ -29,9 +29,18 @@ const Chat = (): JSX.Element => {
       let message = await getMessages(discussionID);
       setMessages(message);
 
-      // socket.emit("messages", "Hello from React!");
       socket.on("messages", (data) => {
         console.log("Message reçu du serveur:", data);
+
+        setMessages((messages) => {
+          const commentExists = messages.some((c) => c._id === data._id);
+
+          if (!commentExists) {
+            return [...messages, data];
+          }
+
+          return messages;
+        });
       });
 
       return () => {

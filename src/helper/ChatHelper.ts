@@ -37,9 +37,8 @@ export default function ChatHelper() {
         }
       );
       if (response.status === 200) {
-        alert("demande envoyé avec succés");
       } else {
-        alert("Echec de la demande");
+        alert("Echec de l' envoi du message");
       }
     } catch (error) {
       console.error(error);
