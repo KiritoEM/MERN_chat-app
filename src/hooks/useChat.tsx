@@ -17,7 +17,9 @@ export interface IChatContext {
   getMessages: (discussionID: string) => void;
   getDiscussions: () => void;
   setLocalID: (ID: string) => void;
+  getCurrentUser: () => void;
   user: IuserArray[];
+  userID: any;
   discussions: IdiscussionCard[];
   currentUser: TCurrentUser[];
   messages: Imessages[];
@@ -82,6 +84,10 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     setID(String);
   };
 
+  const getCurrentUser = () => {
+    return userID;
+  };
+
   //récupère tous les utilisateurs
   const getAllUser = async () => {
     try {
@@ -138,7 +144,6 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       );
       setMessages(response.data);
       console.log(response);
-      
     } catch (err) {
       console.error(err);
     }
@@ -154,6 +159,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     <ChatContext.Provider
       value={{
         user,
+        userID,
         messages,
         getAllUser,
         fetchCurrentUser,
@@ -162,6 +168,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
         discussions,
         setLocalID,
         getMessages,
+        getCurrentUser,
       }}
     >
       {children}
