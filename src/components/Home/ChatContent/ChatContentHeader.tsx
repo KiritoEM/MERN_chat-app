@@ -7,7 +7,7 @@ const ChatContentHeader = ()  :JSX.Element => {
                   </div>
                   <div className="profile-content">
                         <div className="username">
-                             <h5>Loick</h5>
+                             <h5>Hi Ro</h5>
                         </div>
                         <div className="status">
                              <p>En ligne</p>

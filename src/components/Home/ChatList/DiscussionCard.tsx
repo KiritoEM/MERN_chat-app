@@ -33,9 +33,11 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
           ))}
         </div>
         <div className="message">
-          {messages.map((item, index) => (
-            <p key={index}>{item.content}</p>
-          ))}
+          {messages.length === 0 ? (
+            <p>Bienvenue à vous deux sur Let's Chat</p>
+          ) : (
+            messages.map((item, index) => <p key={index}>{item.content}</p>)
+          )}
         </div>
       </div>
     </div>
