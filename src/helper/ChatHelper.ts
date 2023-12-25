@@ -22,6 +22,30 @@ export default function ChatHelper() {
     }
   };
 
+  const postMessages = async (
+    discussionID: string,
+    userID: string,
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    try {
+      let form = e.currentTarget;
+      let content = form["content"].value;
+      const response = await axios.post(
+        `http://localhost:8000/chat/${userID}/new-message/${discussionID}`,
+        {
+          content,
+        }
+      );
+      if (response.status === 200) {
+        alert("demande envoyé avec succés");
+      } else {
+        alert("Echec de la demande");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const getMessages = useCallback(async (discussionID: string) => {
     try {
       let response = await axios.get(
@@ -33,5 +57,5 @@ export default function ChatHelper() {
     }
   }, []);
 
-  return { addFriend, getMessages };
+  return { addFriend, getMessages, postMessages };
 }

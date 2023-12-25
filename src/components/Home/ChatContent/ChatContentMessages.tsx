@@ -16,7 +16,7 @@ const ChatContentMessages: React.FC<IProps> = ({ messages }): JSX.Element => {
   return (
     <div className="section-messages mt-5">
       {messages.map((item, index) => (
-        <div
+        <div  
           className={item.author._id === userID ? "chat-2" : "chat-1"}
           key={index}
         >

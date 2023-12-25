@@ -24,6 +24,9 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
   action,
 }): JSX.Element => {
   const router = useRouter();
+
+  //inverserment de l' ordre d' affichage des messages
+  const reversedMessages = [...messages].reverse();
   return (
     <div
       className="discussion"
@@ -43,7 +46,7 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
           {messages.length === 0 ? (
             <p>Bienvenue à vous deux sur Let's Chat</p>
           ) : (
-            messages.map((item, index) => <p key={index}>{item.content}</p>)
+            <p key={reversedMessages[0]._id}>{reversedMessages[0].content}</p>
           )}
         </div>
       </div>
