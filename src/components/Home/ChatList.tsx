@@ -13,9 +13,8 @@ const ChatList = (): JSX.Element => {
 
       <div className="section-list">
         {discussions.map((item, index) => (
-          <a href={`/chat/${item._id}`}>
+          <a href={`/chat/${item._id}`} key={index}>
             <DiscussionCard
-              key={index}
               {...item}
               action={() => {
                 router.push(`/chat/${item._id}`)

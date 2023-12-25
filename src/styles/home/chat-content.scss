@@ -8,6 +8,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     padding-bottom: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .section-header {
         width: 100%;
@@ -70,10 +73,15 @@
         }
     }
 
+
     .section-messages {
         width: 100%;
         padding-left: 5%;
         padding-right: 5%;
+        height: max-content;
+        overflow: auto;
+        position: relative;
+        top: calc(-2.1rem - 5vh);
 
         .chat-1 {
             width: 100%;
@@ -147,7 +155,11 @@
     }
 
     .section-send {
-        margin-top: 3rem;
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        height: 12vh;
+        align-items: flex-end;
 
         form {
             display: flex;
@@ -158,12 +170,12 @@
             align-items: center;
             justify-content: flex-start;
             gap: 22px;
-            padding-left: 3%;
-            padding-right: 8%;
+            padding-left: 6%;
+            padding-right: 6%;
 
 
             .input {
-                width: 85%;
+                width: 100%;
 
                 input {
                     width: 100%;
@@ -190,4 +202,5 @@
             }
         }
     }
+
 }
