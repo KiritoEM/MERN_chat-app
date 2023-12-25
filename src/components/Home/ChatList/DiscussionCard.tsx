@@ -4,6 +4,7 @@ interface IdiscussionCard {
   _id: string;
   users: Iusers[];
   messages: Imessages[];
+  action : () => void
 }
 
 interface Iusers {
@@ -20,9 +21,10 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
   _id,
   users,
   messages,
+  action
 }): JSX.Element => {
   return (
-    <div className="discussion">
+    <div className="discussion" onClick={action}>
       <div className="user-pictures">
         <img src="/images/hiro.jpeg" alt="" />
       </div>

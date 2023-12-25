@@ -14,11 +14,13 @@ let ID: string;
 export interface IChatContext {
   getAllUser: () => void;
   fetchCurrentUser: () => void;
+  getMessages: (discussionID: string) => void;
   getDiscussions: () => void;
   setLocalID: (ID: string) => void;
   user: IuserArray[];
   discussions: IdiscussionCard[];
   currentUser: TCurrentUser[];
+  messages: Imessages[];
 }
 
 interface IuserArray {
@@ -32,6 +34,11 @@ type TCurrentUser = {
   email: string;
 };
 
+interface Imessages {
+  _id: string;
+  author: Iauthor[];
+  content: string;
+}
 interface IdiscussionCard {
   _id: string;
   users: Iusers[];
@@ -43,10 +50,11 @@ interface Iusers {
   username: string;
 }
 
-interface Imessages {
+interface Iauthor {
   _id: string;
-  content: string;
+  username: string;
 }
+
 interface IChatProvider {
   children?: ReactNode;
 }
@@ -66,6 +74,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
 
     return null;
   });
+  const [messages, setMessages] = useState<Imessages[]>([]);
 
   const setLocalID = (userID: string) => {
     localStorage.setItem("userID", userID);
@@ -121,6 +130,17 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     }
   }, [getToken]);
 
+  const getMessages = useCallback(async (discussionID: string) => {
+    try {
+      let response = await axios.get(
+        `http://localhost:8000/chat/get-chat/${discussionID}`
+      );
+      setMessages(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
   useEffect(() => {
     getAllUser();
     fetchCurrentUser();
@@ -131,12 +151,14 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     <ChatContext.Provider
       value={{
         user,
+        messages,
         getAllUser,
         fetchCurrentUser,
         currentUser,
         getDiscussions,
         discussions,
         setLocalID,
+        getMessages,
       }}
     >
       {children}
