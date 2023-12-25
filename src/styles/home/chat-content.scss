@@ -172,9 +172,11 @@
                     border: 0;
                     background-color: $secondary;
                     padding: 7px 26px;
+                    color: #fff;
 
                     &:focus {
                         outline: 0;
+                        background-color: $secondary;
                     }
                 }
             }
