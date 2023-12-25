@@ -2,10 +2,11 @@ import DiscussionCard from "./ChatList/DiscussionCard";
 import ChatListHeader from "./ChatList/ChatListHeader";
 import ChatListFooter from "./ChatList/ChatListFooter";
 import { useChat } from "@/hooks/useChat";
+import { useRouter } from "next/router";
 
 const ChatList = (): JSX.Element => {
-  const { discussions } = useChat();
-  const { getMessages } = useChat();
+  const { discussions, getMessages } = useChat();
+  const router = useRouter();
   return (
     <section id="chat-list">
       <ChatListHeader />
@@ -16,7 +17,9 @@ const ChatList = (): JSX.Element => {
             <DiscussionCard
               key={index}
               {...item}
-              action={() => getMessages(item._id)}
+              action={() => {
+                router.push(`/chat/${item._id}`)
+              }}
             />
           </a>
         ))}

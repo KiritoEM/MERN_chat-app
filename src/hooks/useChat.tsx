@@ -39,6 +39,7 @@ interface Imessages {
   author: Iauthor[];
   content: string;
 }
+
 interface IdiscussionCard {
   _id: string;
   users: Iusers[];
@@ -136,6 +137,8 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
         `http://localhost:8000/chat/get-chat/${discussionID}`
       );
       setMessages(response.data);
+      console.log(response);
+      
     } catch (err) {
       console.error(err);
     }

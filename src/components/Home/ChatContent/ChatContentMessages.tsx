@@ -1,8 +1,17 @@
 import { useChat } from "@/hooks/useChat";
+import React from "react";
 
-const ChatContentMessages = (): JSX.Element => {
-  const { messages } = useChat();
+interface IProps {
+  messages: Imessages[];
+}
 
+interface Imessages {
+  _id: string;
+  author: any[];
+  content: string;
+}
+
+const ChatContentMessages: React.FC<IProps> = ({ messages }): JSX.Element => {
   return (
     <div className="section-messages mt-5">
       {messages.map((item, index) => (

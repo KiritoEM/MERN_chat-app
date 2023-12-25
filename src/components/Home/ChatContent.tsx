@@ -1,12 +1,18 @@
+import { useEffect } from "react";
 import ChatContentHeader from "./ChatContent/ChatContentHeader";
 import ChatContentMessages from "./ChatContent/ChatContentMessages";
 import ChatSend from "./ChatContent/ChatSend";
+import { useChat } from "@/hooks/useChat";
 
-const ChatContent = (): JSX.Element => {
+interface Iprops {
+  props: any[];
+}
+
+const ChatContent: React.FC<Iprops> = ({ props }): JSX.Element => {
   return (
     <section id="chat-content">
       <ChatContentHeader />
-      <ChatContentMessages />
+      <ChatContentMessages messages={props} />
       <ChatSend />
     </section>
   );

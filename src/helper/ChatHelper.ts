@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useChat } from "@/hooks/useChat";
+import { useCallback } from "react";
 
 export default function ChatHelper() {
   const { currentUser } = useChat();
@@ -21,5 +22,17 @@ export default function ChatHelper() {
     }
   };
 
-  return { addFriend };
+  const getMessages = useCallback(async (discussionID: string) => {
+    try {
+      let response = await axios.get(
+        `http://localhost:8000/chat/get-chat/${discussionID}`
+      );
+      return response.data;
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
+  return { addFriend, getMessages };
 }
