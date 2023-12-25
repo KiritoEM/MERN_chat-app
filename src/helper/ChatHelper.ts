@@ -28,7 +28,6 @@ export default function ChatHelper() {
         `http://localhost:8000/chat/get-chat/${discussionID}`
       );
       return response.data;
-      console.log(response);
     } catch (err) {
       console.error(err);
     }

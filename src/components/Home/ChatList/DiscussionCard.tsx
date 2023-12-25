@@ -1,10 +1,10 @@
-import React from "react";
+import { useRouter } from "next/router";
 
 interface IdiscussionCard {
   _id: string;
   users: Iusers[];
   messages: Imessages[];
-  action : () => void
+  action: () => void;
 }
 
 interface Iusers {
@@ -21,10 +21,15 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
   _id,
   users,
   messages,
-  action
+  action,
 }): JSX.Element => {
+  const router = useRouter();
   return (
-    <div className="discussion" onClick={action}>
+    <div
+      className="discussion"
+      id={`${router.asPath === `/chat/${_id}` ? "discussion-active" : ""}`}
+      onClick={action}
+    >
       <div className="user-pictures">
         <img src="/images/hiro.jpeg" alt="" />
       </div>
