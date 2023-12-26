@@ -57,11 +57,11 @@
 
         &::-webkit-scrollbar {
             width: 6px;
-            border-radius: 47px;
+            border-radius: 77px;
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: $primary;
+            background-color: grey;
         }
 
         &::-webkit-scrollbar-track {
