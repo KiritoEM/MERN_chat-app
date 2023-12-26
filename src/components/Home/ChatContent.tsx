@@ -8,10 +8,13 @@ interface Iprops {
   discussionID: string | undefined | string[];
 }
 
-const ChatContent: React.FC<Iprops> = ({ props , discussionID }): JSX.Element => {
+const ChatContent: React.FC<Iprops> = ({
+  props,
+  discussionID,
+}): JSX.Element => {
   return (
     <section id="chat-content">
-      <ChatContentHeader />
+        <ChatContentHeader />
       <ChatContentMessages messages={props} />
       <ChatSend ID={discussionID} />
     </section>

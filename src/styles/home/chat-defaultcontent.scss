@@ -1,0 +1,31 @@
+#chat-defaultcontent {
+    width: 75%;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__container {
+        width: max-content;
+        height: max-content;
+
+        .title {
+            text-align: center;
+
+            h2 {
+                color: #fff;
+                font-weight: 600;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-top: 17px;
+
+            h5 {
+                color: #fff;
+            }
+        }
+    }
+}

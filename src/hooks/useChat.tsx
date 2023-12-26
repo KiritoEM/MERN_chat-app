@@ -79,6 +79,7 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     return null;
   });
   const [messages, setMessages] = useState<Imessages[]>([]);
+  const [connected, setConnected] = useState<Imessages[]>([]);
 
   const setLocalID = (userID: string) => {
     localStorage.setItem("userID", userID);
@@ -162,10 +163,31 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
     }
   }, []);
 
+  const getConnectedDate = async () => {
+    socket.on("update-users", ({ type, userID, disconnectedAt }) => {
+      if (type === "disconnect") {
+        const disconnectedAtDate = new Date(disconnectedAt);
+        const timeSinceDisconnect = Math.floor(
+          (new Date().getTime() - disconnectedAtDate.getTime()) / (1000 * 60)
+        );
+        console.log(
+          `Utilisateur déconnecté : ${userID}, Déconnexion il y a : ${timeSinceDisconnect} minutes`
+        );
+      }
+    });
+
+    socket.emit("user-connected");
+
+    return () => {
+      socket.disconnect();
+    };
+  };
+
   useEffect(() => {
     getAllUser();
     fetchCurrentUser();
     getDiscussions();
+    getConnectedDate();
   }, []);
 
   return (
