@@ -6,10 +6,6 @@ import { useRouter } from "next/router";
 import socket from "@/helper/socket";
 import React, { useCallback, useEffect, useState } from "react";
 
-interface Iprops {
-  ID: string;
-}
-
 interface Iauthor {
   _id: string;
   username: string;
@@ -21,7 +17,7 @@ interface Imessages {
   content: string;
 }
 
-const ChatList: React.FC<Iprops> = ({ ID }): JSX.Element => {
+const ChatList: React.FC = (): JSX.Element => {
   const { discussions } = useChat();
   const router = useRouter();
 
@@ -30,16 +26,20 @@ const ChatList: React.FC<Iprops> = ({ ID }): JSX.Element => {
       <ChatListHeader />
 
       <div className="section-list">
-        {discussions.map((item, index) => (
-          <a href={`/chat/${item._id}`} key={index}>
-            <DiscussionCard
-              {...item}
-              action={() => {
-                router.push(`/chat/${item._id}`);
-              }}
-            />
-          </a>
-        ))}
+        {discussions.length === 0 ? (
+          <h5 id="vide">Aucune discussion disponible.</h5>
+        ) : (
+          discussions.map((item, index) => (
+            <a href={`/chat/${item._id}`} key={index}>
+              <DiscussionCard
+                {...item}
+                action={() => {
+                  router.push(`/chat/${item._id}`);
+                }}
+              />
+            </a>
+          ))
+        )}
       </div>
 
       <ChatListFooter />

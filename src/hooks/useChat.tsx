@@ -121,6 +121,10 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
         setDiscussions(updatedDiscussions);
       });
 
+      socket.on("newDiscussion", (newDiscussion) => {
+        setDiscussions(newDiscussion);
+      });
+
       return () => {
         socket.disconnect();
       };

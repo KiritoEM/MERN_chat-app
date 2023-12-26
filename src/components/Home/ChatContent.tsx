@@ -5,7 +5,7 @@ import ChatSend from "./ChatContent/ChatSend";
 
 interface Iprops {
   props: any[];
-  discussionID: string;
+  discussionID: string | undefined | string[];
 }
 
 const ChatContent: React.FC<Iprops> = ({ props , discussionID }): JSX.Element => {
