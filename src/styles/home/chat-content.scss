@@ -82,7 +82,20 @@
         height: max-content;
         overflow: auto;
         position: relative;
-        top: calc(-1rem - 2vh);
+        top: calc(-1rem - 1.8vh);
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            border-radius: 47px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $primary;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: $secondary;
+        }
 
         .chat-1 {
             width: 100%;
