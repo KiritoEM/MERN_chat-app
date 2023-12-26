@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 interface IdiscussionCard {
   _id: string;
   users: Iusers[];
-  messages: Imessages[];
+  messages: Imessages[] | Imessages;
   action: () => void;
 }
 
@@ -25,12 +25,17 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
 }): JSX.Element => {
   const router = useRouter();
 
-  //inverserment de l' ordre d' affichage des messages
-  const reversedMessages = [...messages].reverse();
+  const messagesArray = Array.isArray(messages) ? messages : [messages];
+
+  // Inverser l'ordre d'affichage des messages
+  const reversedMessages =
+    messagesArray.length > 0 ? [...messagesArray].reverse() : [];
+
   return (
     <div
-      className="discussion"
-      id={`${router.asPath === `/chat/${_id}` ? "discussion-active" : ""}`}
+      className={`discussion ${
+        router.asPath === `/chat/${_id}` ? "discussion-active" : ""
+      }`}
       onClick={action}
     >
       <div className="user-pictures">
@@ -38,15 +43,14 @@ const DiscussionCard: React.FC<IdiscussionCard> = ({
       </div>
       <div className="user-info">
         <div className="name">
-          {users.map((item, index) => (
-            <h5 key={index}>{item.username}</h5>
-          ))}
+          {users &&
+            users.map((item, index) => <h5 key={index}>{item.username}</h5>)}
         </div>
         <div className="message">
-          {messages.length === 0 ? (
+          {reversedMessages.length === 0 ? (
             <p>Bienvenue à vous deux sur Let's Chat</p>
           ) : (
-            <p key={reversedMessages[0]._id}>{reversedMessages[0].content}</p>
+            <p>{reversedMessages && reversedMessages[0]?.content}</p>
           )}
         </div>
       </div>

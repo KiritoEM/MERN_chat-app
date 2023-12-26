@@ -3,10 +3,28 @@ import ChatListHeader from "./ChatList/ChatListHeader";
 import ChatListFooter from "./ChatList/ChatListFooter";
 import { useChat } from "@/hooks/useChat";
 import { useRouter } from "next/router";
+import socket from "@/helper/socket";
+import React, { useCallback, useEffect, useState } from "react";
 
-const ChatList = (): JSX.Element => {
-  const { discussions, getMessages } = useChat();
+interface Iprops {
+  ID: string;
+}
+
+interface Iauthor {
+  _id: string;
+  username: string;
+}
+
+interface Imessages {
+  _id: string;
+  author: Iauthor[];
+  content: string;
+}
+
+const ChatList: React.FC<Iprops> = ({ ID }): JSX.Element => {
+  const { discussions } = useChat();
   const router = useRouter();
+
   return (
     <section id="chat-list">
       <ChatListHeader />
@@ -17,7 +35,7 @@ const ChatList = (): JSX.Element => {
             <DiscussionCard
               {...item}
               action={() => {
-                router.push(`/chat/${item._id}`)
+                router.push(`/chat/${item._id}`);
               }}
             />
           </a>

@@ -8,6 +8,7 @@ import React, {
   useCallback,
 } from "react";
 import { useToken } from "./useToken";
+import socket from "@/helper/socket";
 
 let ID: string;
 
@@ -113,8 +114,16 @@ export const ChatProvider: React.FC<IChatProvider> = ({ children }) => {
       let response = await axios.get(
         `http://localhost:8000/chat/get-discussions/${ID}`
       );
-      console.log(response.data);
+      console.log("discussions :", response.data);
       setDiscussions(response.data);
+
+      socket.on("discussions", (updatedDiscussions) => {
+        setDiscussions(updatedDiscussions);
+      });
+
+      return () => {
+        socket.disconnect();
+      };
     } catch (err) {
       console.error(err);
     }
