@@ -14,7 +14,7 @@ const ChatContent: React.FC<Iprops> = ({
 }): JSX.Element => {
   return (
     <section id="chat-content">
-        <ChatContentHeader />
+      <ChatContentHeader ID={discussionID} />
       <ChatContentMessages messages={props} />
       <ChatSend ID={discussionID} />
     </section>

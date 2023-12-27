@@ -1,10 +1,25 @@
 import { useChat } from "@/hooks/useChat";
+import { useEffect } from "react";
 
-const ChatContentHeader = (): JSX.Element => {
-  const { discussions } = useChat();
-  if (discussions) {
-    console.log("messages : ", discussions);
+interface IidProps {
+  ID: string;
+}
+
+const ChatContentHeader: React.FC<IidProps> = ({ ID }): JSX.Element => {
+  const { discussion, getDiscussionsById } = useChat();
+
+  if (ID) {
+    console.log("ID depuis props : ", ID);
   }
+
+  if (discussion) {
+    console.log(discussion);
+  }
+
+  useEffect(() => {
+    getDiscussionsById(ID);
+  }, [ID]);
+
   return (
     <div className="section-header">
       <div className="user-info">
@@ -12,13 +27,16 @@ const ChatContentHeader = (): JSX.Element => {
           <img src="/images/hiro.jpeg" alt="" />
         </div>
         <div className="profile-content">
-          {discussions.map((item, index) => (
-            <div className="username" key={index}>
-              {item.users.map((item, index) => (
-                <h5 key={index}>{item.username}</h5>
-              ))}
-            </div>
-          ))}
+          {Array.isArray(discussion) &&
+            discussion.map((item, index) => (
+              <div className="username" key={index}>
+                {Array.isArray(item.users) &&
+                  item.users.map((user, userIndex) => (
+                    <h5 key={userIndex}>{user.username}</h5>
+                  ))}
+              </div>
+            ))}
+
           <div className="status">
             <p>En ligne</p>
           </div>
