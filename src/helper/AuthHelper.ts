@@ -24,7 +24,37 @@ export default function AuthHelper() {
       });
 
       if (response.status === 200) {
-        setLocalToken(response.data.token)
+        setLocalToken(response.data.token);
+        router.push("/accueil");
+        alert(`Bienvenue ${username}`);
+      } else {
+        alert("Echec de l' inscription");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const extractFirstPart = (email: string) => {
+    const firstPartMatch = email.match(/^[^.@-]+/);
+
+    const firstPart = firstPartMatch ? firstPartMatch[0] : "";
+
+    return firstPart;
+  };
+
+  const signupWithFirebase = async (email: string) => {
+    const username = extractFirstPart(email);
+
+    try {
+      const response = await axios.post("http://localhost:8000/auth/signup", {
+        username: username,
+        email: email,
+        password: "Firebase Password",
+      });
+
+      if (response.status === 200) {
+        setLocalToken(response.data.token);
         router.push("/accueil");
         alert(`Bienvenue ${username}`);
       } else {
@@ -48,7 +78,7 @@ export default function AuthHelper() {
       });
 
       if (response.status === 200) {
-        setLocalToken(response.data.token)  
+        setLocalToken(response.data.token);
         router.push("/accueil");
         alert(`Bon retour`);
       } else {
@@ -59,5 +89,5 @@ export default function AuthHelper() {
     }
   };
 
-  return { signup, login };
+  return { signup, login, signupWithFirebase };
 }

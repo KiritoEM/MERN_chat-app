@@ -1,6 +1,7 @@
 import { useFirebase } from "@/hooks/useFirebase";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import AuthHelper from "@/helper/AuthHelper";
 
 interface Ilogin {
   action: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -12,11 +13,13 @@ const LoginForm: React.FC<Ilogin> = ({
   firebaseAction,
 }): JSX.Element => {
   const { emailSent } = useFirebase();
-   const router = useRouter();
+  const router = useRouter();
+  const { signupWithFirebase } = AuthHelper();
 
   useEffect(() => {
     if (emailSent) {
-       router.push("/accueil");
+      router.push("/accueil");
+      signupWithFirebase(emailSent);
     }
   }, [emailSent]);
 
