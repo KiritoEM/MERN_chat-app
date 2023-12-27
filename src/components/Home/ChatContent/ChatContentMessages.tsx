@@ -14,7 +14,7 @@ interface Imessages {
 const ChatContentMessages: React.FC<IProps> = ({ messages }): JSX.Element => {
   const { userID } = useChat();
   return (
-    <div className="section-messages mt-5">
+    <div className="section-messages">
       {messages.length === 0 ? (
         <h5 id="vide">Bienvenue à vous deux sur Let's Talk </h5>
       ) : (

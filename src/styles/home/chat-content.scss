@@ -82,7 +82,8 @@
         height: max-content;
         overflow: auto;
         position: relative;
-        top: calc(-1rem - 1.8vh);
+        padding-top: 2.6rem;
+        padding-bottom: 45px;
 
         &::-webkit-scrollbar {
             width: 8px;
