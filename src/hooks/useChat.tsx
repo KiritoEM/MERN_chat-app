@@ -82,7 +82,6 @@
       return null;
     });
     const [messages, setMessages] = useState<Imessages[]>([]);
-    const [connected, setConnected] = useState<Imessages[]>([]);
 
     const setLocalID = (userID: string) => {
       localStorage.setItem("userID", userID);
