@@ -18,6 +18,8 @@ const ChatSend: React.FC<Iprops> = ({ ID }): JSX.Element => {
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           postMessages(ID, userID, e);
+          let form = e.currentTarget;
+          form["content"].value = "";
         }}
       >
         <div className="input">
